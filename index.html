@@ -7,124 +7,193 @@
     <link rel="stylesheet" href="style.css">
     <!-- Font Awesome for clean icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Cross-Device PDF Generator Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 <body>
 
-    <!-- Header / Hero Section -->
-    <header class="hero">
-        <div class="container hero-flex">
-            <div class="hero-image">
-                <!-- Replace 'profile.jpg' with your actual image filename -->
-                <img src="profile.jpg" alt="Hout Ratanakvisoth">
-            </div>
-            <div class="hero-text">
-                <h1>Hout Ratanakvisoth</h1>
-                <p class="subtitle">Digital Economics Student & Educator</p>
-                <p class="bio">I am a year 1 student at NUM International University majoring in Digital Economics. Passionate about leveraging data, economics, and mathematics to solve real-world problems.</p>
-                <!-- CV Download Button (Link your actual PDF file here) -->
-                <a href="Hout_Ratanakvisoth_CV.pdf" download="Hout_Ratanakvisoth_CV.pdf" class="btn">
-                    <i class="fas fa-download"></i> Download CV
-                </a>
-            </div>
-        </div>
-    </header>
+    <!-- Target container for PDF generation -->
+    <div id="cv-content">
 
-    <!-- Main Content Layout -->
-    <main class="container main-layout">
-        
-        <!-- Left Sidebar: Contact & Skills -->
-        <aside class="sidebar">
-            <div class="card">
-                <h3><i class="fas fa-address-book"></i> Contact</h3>
-                <ul class="contact-list">
-                    <li><i class="fas fa-phone"></i> +855 977499016</li>
-                    <li><i class="fas fa-envelope"></i> houtratanakvisoth@gmail.com</li>
-                    <li><i class="fas fa-map-marker-alt"></i> Phnom Penh</li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <h3><i class="fas fa-tools"></i> Skills</h3>
-                <ul class="skills-list">
-                    <li>Sales</li>
-                    <li>Math</li>
-                    <li>Computer: Capcut</li>
-                    <li>Microsoft Office</li>
-                    <li>PowerPoint Office</li>
-                    <li>Leadership</li>
-                    <li>Marketing</li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <h3><i class="fas fa-language"></i> Languages</h3>
-                <ul class="skills-list">
-                    <li>English</li>
-                    <li>Khmer</li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <h3><i class="fas fa-user-check"></i> Reference</h3>
-                <p><strong>Mr. Hin Dawith</strong></p>
-                <p class="subtitle">SUC6 Math Teacher</p>
-            </div>
-        </aside>
-
-        <!-- Right Content: Experience & Education -->
-        <section class="content">
-            <div class="card">
-                <h2><i class="fas fa-briefcase"></i> Experience & Competitions</h2>
-                
-                <div class="timeline-item">
-                    <h4>Mathematic Competition</h4>
-                    <p>Gained critical thinking skills. Awarded Certificate (Angkor Mathematic).</p>
+        <!-- Header / Hero Section -->
+        <header class="hero">
+            <div class="container hero-flex">
+                <div class="hero-image">
+                    <!-- ROW 19: Path updated to your personal photo folder -->
+                    <img src="picture/SOTH.jpg" alt="Hout Ratanakvisoth">
                 </div>
-
-                <div class="timeline-item">
-                    <h4>Spring Internship Program</h4>
-                    <p>Developed teamwork, communication, and problem-solving skills. Awarded Certificate (Marketing and Sales).</p>
-                </div>
-
-                <div class="timeline-item">
-                    <h4>Speaking Competition</h4>
-                    <p>Activated public speaking skills. Awarded Certificate.</p>
-                </div>
-
-                <div class="timeline-item">
-                    <h4>Debate Competition</h4>
-                    <p>Ranked in the top 8 among 34 teams. Gained the art of teamwork. Awarded Certificate.</p>
+                <div class="hero-text">
+                    <h1>Hout Ratanakvisoth</h1>
+                    <p class="subtitle">Digital Economics Student & Educator</p>
+                    <p class="bio">I am a year 1 student at NUM International University majoring in Digital Economics. Passionate about leveraging data, economics, and mathematics to solve real-world problems.</p>
+                    <!-- Trigger script to compile and download as real PDF on any mobile or desktop device -->
+                    <a href="#" onclick="downloadCV(event)" class="btn no-print">
+                        <i class="fas fa-download"></i> Download CV as PDF
+                    </a>
                 </div>
             </div>
+        </header>
 
-            <div class="card">
-                <h2><i class="fas fa-graduation-cap"></i> Education</h2>
-                
-                <div class="timeline-item">
-                    <h4>NUM International University</h4>
-                    <p class="date">Current</p>
-                    <p>Year 1 Student majoring in Digital Economics.</p>
+        <!-- Main Content Layout -->
+        <main class="container main-layout">
+            
+            <!-- Left Sidebar: Contact & Skills -->
+            <aside class="sidebar">
+                <div class="card">
+                    <h3><i class="fas fa-address-book"></i> Contact</h3>
+                    <ul class="contact-list">
+                        <li><i class="fas fa-phone"></i> +855 977499016</li>
+                        <li><i class="fas fa-envelope"></i> houtratanakvisoth@gmail.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Phnom Penh</li>
+                    </ul>
                 </div>
 
-                <div class="timeline-item">
-                    <h4>Cheasim Sonthormuk High School</h4>
-                    <p class="date">2022 - 2025</p>
-                    <p>Graduated with Bac II Grade B.</p>
+                <div class="card">
+                    <h3><i class="fas fa-tools"></i> Skills</h3>
+                    <ul class="skills-list">
+                        <li>Coding (Python, R)</li>
+                        <li>Web Development (HTML/CSS)</li>
+                        <li>Math</li>
+                        <li>Sales</li>
+                        <li>Computer: Capcut</li>
+                        <li>Microsoft Office</li>
+                        <li>PowerPoint Office</li>
+                        <li>Leadership</li>
+                        <li>Marketing</li>
+                    </ul>
                 </div>
 
-                <div class="timeline-item">
-                    <h4>Beltie International School</h4>
-                    <p class="date">2018 - 2023</p>
-                    <p>Graduated.</p>
+                <div class="card">
+                    <h3><i class="fas fa-language"></i> Languages</h3>
+                    <ul class="skills-list">
+                        <li>English</li>
+                        <li>Khmer</li>
+                    </ul>
                 </div>
-            </div>
-        </section>
 
-    </main>
+                <div class="card">
+                    <h3><i class="fas fa-user-check"></i> Reference</h3>
+                    <p><strong>Mr. Hin Dawith</strong></p>
+                    <p class="subtitle">SUC6 Math Teacher</p>
+                </div>
+            </aside>
 
-    <footer>
-        <p>&copy; 2026 Hout Ratanakvisoth. All rights reserved.</p>
-    </footer>
+            <!-- Right Content: Experience, Education & Projects -->
+            <section class="content">
+                <div class="card">
+                    <h2><i class="fas fa-briefcase"></i> Experience & Competitions</h2>
+                    
+                    <div class="timeline-item">
+                        <h4>Mathematics Teacher</h4>
+                        <p class="date">Current</p>
+                        <p>Teaching Grade 12 students at <strong>START UP COMMUNITY</strong>, focusing on advanced mathematical concepts and national exam preparation.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h4>Mathematic Competition</h4>
+                        <p>Gained critical thinking skills. Awarded Certificate (Angkor Mathematic).</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h4>Spring Internship Program</h4>
+                        <p>Developed teamwork, communication, and problem-solving skills. Awarded Certificate (Marketing and Sales).</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h4>Speaking Competition</h4>
+                        <p>Activated public speaking skills. Awarded Certificate.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h4>Debate Competition</h4>
+                        <p>Ranked in the top 8 among 34 teams. Gained the art of teamwork. Awarded Certificate.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+                    
+                    <div class="timeline-item">
+                        <h4>NUM International University</h4>
+                        <p class="date">Current</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h4>Cheasim Sonthormuk High School</h4>
+                        <p class="date">2022 - 2025</p>
+                        <p>Graduated with Bac II Grade B.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h4>Beltie International School</h4>
+                        <p class="date">2018 - 2023</p>
+                        <p>Graduated.</p>
+                    </div>
+                </div>
+
+                <!-- Section: Personal Projects -->
+                <div class="card">
+                    <h2><i class="fas fa-code-branch"></i> Team & Personal Projects</h2>
+                    
+                    <div class="project-item">
+                        <h4>Haang (ហាង)</h4>
+                        <p class="project-status"><i class="fas fa-spinner fa-spin"></i> Under Active Development</p>
+                        <p class="project-desc">A web application platform designed for restaurant owners to seamlessly manage, showcase, and sell their inventory, menus, and food items online.</p>
+                    </div>
+
+                    <hr class="project-divider">
+
+                    <div class="project-item">
+                        <h4>Cambodia Interactive Travel Map</h4>
+                        <p class="project-desc">A front-end web application featuring an interactive digital map of Cambodia. Users can select individual regions—such as Phnom Penh or specific provinces—to immediately discover local landmarks and travel destinations.</p>
+                    </div>
+
+                    <hr class="project-divider">
+
+                    <div class="project-item">
+                        <h4>Pink Messenger</h4>
+                        <p class="project-desc">A web application where users can seamlessly exchange real-time chat messages and initiate live video calls.</p>
+                        <a href="https://pink-messenger.onrender.com/" target="_blank" class="project-link">
+                            <i class="fas fa-external-link-alt"></i> Access Application
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Hout Ratanakvisoth. All rights reserved.</p>
+        </footer>
+
+    </div>
+
+    <!-- JavaScript function to bundle, render layout configuration, and execute file download -->
+    <script>
+        function downloadCV(event) {
+            event.preventDefault();
+            
+            // Targets the entire layout wrapper
+            const element = document.getElementById('cv-content');
+            
+            // Configurations for crisp device layout formatting
+            const options = {
+                margin:       10,
+                filename:     'Hout_Ratanakvisoth_CV.pdf',
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2, useCORS: true },
+                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+
+            // Hides download button dynamically inside the rendered file, runs build, then reveals button back
+            const button = document.querySelector('.btn.no-print');
+            button.style.display = 'none';
+
+            html2pdf().set(options).from(element).save().then(() => {
+                button.style.display = 'inline-block';
+            });
+        }
+    </script>
 
 </body>
 </html>
