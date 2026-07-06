@@ -1,12 +1,20 @@
-/* --- Global Styles --- */
+/* --- Cosmic Space Theme Global Styles --- */
 :root {
-    --primary-color: #0099ff;
-    --dark-color: #1a252f;
-    --light-bg: #f4f7f9;
-    --card-bg: #ffffff;
-    --text-color: #333333;
-    --text-muted: #666666;
-    --border-radius: 8px;
+    /* Cosmic Color Palette */
+    --space-bg: linear-gradient(135deg, #0b0f19 0%, #111827 40%, #1e1b4b 100%);
+    --card-bg: rgba(17, 24, 39, 0.75); /* Translucent dark cards */
+    --card-border: rgba(99, 102, 241, 0.15); /* Soft galaxy indigo stroke */
+    
+    /* Cosmic Accents */
+    --cosmic-cyan: #06b6d4;
+    --cosmic-purple: #a855f7;
+    --cosmic-indigo: #6366f1;
+    
+    /* Text Typography */
+    --text-bright: #f3f4f6;
+    --text-glow: #e0e7ff;
+    --text-muted: #9ca3af;
+    --border-radius: 12px;
 }
 
 html {
@@ -21,30 +29,35 @@ html {
 }
 
 body {
-    background-color: var(--light-bg);
-    color: var(--text-color);
+    background: var(--space-bg);
+    color: var(--text-bright);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
 }
 
 #cv-content {
-    background-color: var(--light-bg);
+    background: var(--space-bg);
     width: 100%;
+    min-height: 100vh;
 }
 
 .container {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 25px;
     width: 100%;
 }
 
-/* --- Hero Section --- */
+/* --- Hero Section (Deep Space Nebula Header) --- */
 .hero {
-    background: linear-gradient(135deg, var(--dark-color) 0%, #2c3e50 100%);
+    background: radial-gradient(circle at 80% 20%, rgba(168, 85, 247, 0.15) 0%, transparent 50%), 
+                radial-gradient(circle at 20% 80%, rgba(6, 182, 212, 0.1) 0%, transparent 50%),
+                rgba(15, 23, 42, 0.4);
+    border-bottom: 1px solid var(--card-border);
+    backdrop-filter: blur(8px);
     color: white;
-    padding: 50px 20px;
-    margin-bottom: 20px;
+    padding: 60px 20px;
+    margin-bottom: 10px;
 }
 
 .hero-flex {
@@ -58,12 +71,12 @@ body {
 }
 
 .hero-image img {
-    width: 170px;
-    height: 190px;
+    width: 160px;
+    height: 185px;
     object-fit: cover;
     border-radius: var(--border-radius);
-    border: 4px solid var(--primary-color);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    border: 2px solid var(--cosmic-cyan);
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.35);
 }
 
 .hero-text {
@@ -71,103 +84,115 @@ body {
 }
 
 .hero-text h1 {
-    font-size: 2.6rem;
-    margin-bottom: 5px;
-    line-height: 1.2;
+    font-size: 2.8rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 6px;
+    line-height: 1.1;
+    background: linear-gradient(to right, #ffffff, var(--text-glow));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .hero-text .subtitle {
-    color: var(--primary-color);
-    font-size: 1.25rem;
+    color: var(--cosmic-cyan);
+    font-size: 1.3rem;
     font-weight: 600;
     margin-bottom: 15px;
+    text-shadow: 0 0 10px rgba(6, 182, 212, 0.2);
 }
 
 .hero-text .bio {
-    max-width: 700px;
-    margin-bottom: 22px;
-    color: #e0e0e0;
+    max-width: 720px;
+    margin-bottom: 25px;
+    color: var(--text-muted);
     font-size: 1rem;
 }
 
-/* --- Buttons --- */
+/* --- Interactive Cosmic Buttons --- */
 .btn {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    background-color: var(--primary-color);
+    gap: 10px;
+    background: linear-gradient(135deg, var(--cosmic-indigo) 0%, var(--cosmic-purple) 100%);
     color: white;
-    padding: 12px 28px;
+    padding: 12px 26px;
     text-decoration: none;
     border-radius: 30px;
-    font-weight: bold;
-    transition: background 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 4px 6px rgba(0,153,255,0.2);
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(168, 85, 247, 0.25);
     font-size: 0.95rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .btn:hover {
-    background-color: #007acc;
     transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(168, 85, 247, 0.4), 0 0 12px rgba(6, 182, 212, 0.3);
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
-/* --- Layout Grid (Desktop default) --- */
+/* --- Main Layout Grid --- */
 .main-layout {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    gap: 25px;
+    gap: 30px;
     align-items: start;
-    padding-top: 10px;
+    padding-top: 5px;
 }
 
-/* --- Cards & UI Elements --- */
+/* --- Clean Translucent Cards --- */
 .card {
     background-color: var(--card-bg);
-    padding: 28px;
+    border: 1px solid var(--card-border);
+    backdrop-filter: blur(12px);
+    padding: 30px;
     border-radius: var(--border-radius);
     margin-bottom: 25px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 .card h2, .card h3 {
-    margin-bottom: 18px;
-    color: var(--dark-color);
-    border-bottom: 2px solid var(--light-bg);
-    padding-bottom: 8px;
-    font-size: 1.4rem;
+    margin-bottom: 20px;
+    color: var(--text-bright);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 10px;
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
 }
 
 .card h3 {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
 }
 
 .card h2 i, .card h3 i {
-    color: var(--primary-color);
-    margin-right: 8px;
+    color: var(--cosmic-cyan);
+    margin-right: 10px;
 }
 
-/* --- Sidebar Specifics --- */
+/* --- Sidebar Specifications --- */
 .contact-list {
     list-style: none;
 }
 
 .contact-list li {
-    margin-bottom: 14px;
+    margin-bottom: 16px;
     display: flex;
     align-items: flex-start;
-    gap: 12px;
+    gap: 14px;
     font-size: 0.95rem;
-    word-break: break-all;
+    color: #d1d5db;
 }
 
 .contact-list i {
-    color: var(--primary-color);
+    color: var(--cosmic-indigo);
     width: 18px;
     margin-top: 4px;
     flex-shrink: 0;
 }
 
-/* Forced Container Layout to Stack Skills Vertically */
+/* Perfect Stacked Vertical Layout for Skills & Languages */
 .skills-list {
     list-style: none;
     display: flex !important;
@@ -176,41 +201,65 @@ body {
     width: 100% !important;
 }
 
-/* Strict Item Overrides for Clean Rows */
 .skills-list li {
     display: block !important;
     clear: both !important;
     float: none !important;
-    width: auto !important;
-    max-width: 100% !important;
-    background-color: var(--light-bg);
-    padding: 8px 14px;
+    width: 100% !important; /* Full structured block rows */
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 10px 16px;
     margin: 6px 0 !important;
-    border-radius: 4px;
+    border-radius: 6px;
     font-size: 0.95rem;
+    color: #e5e7eb;
     font-weight: 500;
-    border-left: 3px solid var(--primary-color);
+    border-left: 3px solid var(--cosmic-purple);
     box-sizing: border-box;
+    transition: background 0.2s ease;
+}
+
+.skills-list li:hover {
+    background: rgba(255, 255, 255, 0.07);
+}
+
+.subtitle-ref {
+    color: var(--cosmic-cyan);
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-top: 2px;
 }
 
 /* --- Timeline items --- */
 .timeline-item {
-    margin-bottom: 22px;
-    padding-left: 18px;
-    border-left: 2px solid var(--primary-color);
+    margin-bottom: 24px;
+    padding-left: 20px;
+    border-left: 2px solid var(--cosmic-indigo);
+    position: relative;
 }
 
 .timeline-item h4 {
-    color: var(--dark-color);
+    color: var(--text-bright);
     font-size: 1.15rem;
-    margin-bottom: 2px;
+    font-weight: 600;
+    margin-bottom: 3px;
 }
 
 .timeline-item .date {
     font-size: 0.85rem;
-    color: var(--text-muted);
-    font-weight: bold;
-    margin-bottom: 6px;
+    color: var(--cosmic-cyan);
+    font-weight: 700;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.timeline-item p {
+    color: #d1d5db;
+}
+
+.timeline-item strong {
+    color: white;
 }
 
 /* --- Project items --- */
@@ -219,21 +268,24 @@ body {
 }
 
 .project-item h4 {
-    color: var(--dark-color);
+    color: var(--text-bright);
     font-size: 1.2rem;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
 }
 
 .project-status {
     font-size: 0.85rem;
-    color: #e67e22;
+    color: #f59e0b;
     font-weight: 600;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
 }
 
 .project-desc {
-    color: var(--text-color);
-    margin-bottom: 12px;
+    color: #d1d5db;
+    margin-bottom: 14px;
     font-size: 0.95rem;
 }
 
@@ -241,55 +293,38 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    color: var(--primary-color);
+    color: var(--cosmic-cyan);
     text-decoration: none;
-    font-weight: bold;
-    transition: color 0.2s ease;
+    font-weight: 600;
+    transition: all 0.2s ease;
     font-size: 0.95rem;
 }
 
 .project-link:hover {
-    color: #007acc;
-    text-decoration: underline;
+    color: white;
+    text-shadow: 0 0 8px rgba(6, 182, 212, 0.6);
 }
 
 .project-divider {
     border: 0;
     height: 1px;
-    background: var(--light-bg);
-    margin: 20px 0;
+    background: rgba(255, 255, 255, 0.08);
+    margin: 22px 0;
 }
 
 /* --- Footer --- */
 footer {
     text-align: center;
-    padding: 40px 20px;
+    padding: 50px 20px;
     color: var(--text-muted);
     font-size: 0.9rem;
 }
 
-/* --- Page-Break Rules for Perfect Splits --- */
+/* --- Page-Break Rules for PDF Generation --- */
 .html2pdf__page-break {
     page-break-before: always !important;
     break-before: always !important;
     display: none;
-}
-
-@media print {
-    .html2pdf__page-break {
-        display: block !important;
-    }
-    
-    #cv-content {
-        background-color: #f4f7f9 !important;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-    }
-    
-    .content .card:nth-child(2) {
-        page-break-before: always !important;
-        break-before: always !important;
-    }
 }
 
 /* --- Responsive Media Queries (Tablets & Mobile Devices) --- */
@@ -300,41 +335,37 @@ footer {
 
     .main-layout {
         grid-template-columns: 1fr;
-        gap: 15px;
+        gap: 20px;
     }
 
     .hero {
-        padding: 35px 15px;
+        padding: 40px 15px;
         text-align: center;
     }
 
     .hero-flex {
         flex-direction: column;
-        gap: 20px;
+        gap: 25px;
     }
 
     .hero-image img {
-        width: 140px;
-        height: 160px;
+        width: 130px;
+        height: 155px;
     }
 
     .hero-text h1 {
-        font-size: 2rem;
-    }
-
-    .hero-text .subtitle {
-        font-size: 1.1rem;
+        font-size: 2.2rem;
     }
 
     .card {
-        padding: 20px;
-        margin-bottom: 15px;
+        padding: 22px;
+        margin-bottom: 20px;
     }
 }
 
 @media (max-width: 480px) {
     .hero-text h1 {
-        font-size: 1.75rem;
+        font-size: 1.85rem;
     }
     
     .btn {
@@ -347,11 +378,25 @@ footer {
     }
 }
 
-/* --- Print Engine Tweaks --- */
+/* --- Print & PDF Layout Adapters --- */
 @media print {
-    #cv-content {
-        background-color: #f4f7f9 !important;
+    .html2pdf__page-break {
+        display: block !important;
+    }
+    
+    body, #cv-content {
+        background: #0b0f19 !important;
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
+    }
+    
+    .card {
+        background: rgba(17, 24, 39, 0.9) !important;
+        border-color: rgba(99, 102, 241, 0.3) !important;
+    }
+
+    .content .card:nth-child(2) {
+        page-break-before: always !important;
+        break-before: always !important;
     }
 }
