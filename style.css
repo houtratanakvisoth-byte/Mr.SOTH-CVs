@@ -147,7 +147,7 @@ body {
 }
 
 /* --- Sidebar Specifics --- */
-.contact-list, .skills-list {
+.contact-list {
     list-style: none;
 }
 
@@ -167,17 +167,30 @@ body {
     flex-shrink: 0;
 }
 
-/* Modified to force skill tags under each other cleanly */
+/* Forced Container Layout to Stack Skills Vertically */
+.skills-list {
+    list-style: none;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    width: 100% !important;
+}
+
+/* Strict Item Overrides for Clean Rows */
 .skills-list li {
-    display: block;
-    width: 100%;
+    display: block !important;
+    clear: both !important;
+    float: none !important;
+    width: auto !important;
+    max-width: 100% !important;
     background-color: var(--light-bg);
     padding: 8px 14px;
-    margin: 8px 0;
+    margin: 6px 0 !important;
     border-radius: 4px;
     font-size: 0.95rem;
     font-weight: 500;
     border-left: 3px solid var(--primary-color);
+    box-sizing: border-box;
 }
 
 /* --- Timeline items --- */
