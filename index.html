@@ -19,14 +19,12 @@
         <header class="hero">
             <div class="container hero-flex">
                 <div class="hero-image">
-                    <!-- ROW 19: Path updated to your personal photo folder -->
                     <img src="picture/SOTH.jpg" alt="Hout Ratanakvisoth">
                 </div>
                 <div class="hero-text">
                     <h1>Hout Ratanakvisoth</h1>
                     <p class="subtitle">Digital Economics Student & Educator</p>
                     <p class="bio">I am a year 1 student at NUM International University majoring in Digital Economics. Passionate about leveraging data, economics, and mathematics to solve real-world problems.</p>
-                    <!-- Trigger script to compile and download as real PDF on any mobile or desktop device -->
                     <a href="#" onclick="downloadCV(event)" class="btn no-print">
                         <i class="fas fa-download"></i> Download CV as PDF
                     </a>
@@ -116,6 +114,7 @@
                     <div class="timeline-item">
                         <h4>NUM International University</h4>
                         <p class="date">Current</p>
+                        <p>Year 1 Student majoring in Digital Economics.</p>
                     </div>
 
                     <div class="timeline-item">
@@ -168,24 +167,20 @@
 
     </div>
 
-    <!-- JavaScript function to bundle, render layout configuration, and execute file download -->
     <script>
         function downloadCV(event) {
             event.preventDefault();
-            
-            // Targets the entire layout wrapper
             const element = document.getElementById('cv-content');
             
-            // Configurations for crisp device layout formatting
             const options = {
                 margin:       10,
                 filename:     'Hout_Ratanakvisoth_CV.pdf',
                 image:        { type: 'jpeg', quality: 0.98 },
-                html2canvas:  { scale: 2, useCORS: true },
-                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+                html2canvas:  { scale: 2, useCORS: true, logging: false },
+                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
+                pagebreak:    { mode: ['avoid-all', 'css'] }
             };
 
-            // Hides download button dynamically inside the rendered file, runs build, then reveals button back
             const button = document.querySelector('.btn.no-print');
             button.style.display = 'none';
 
