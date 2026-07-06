@@ -15,7 +15,7 @@
     <!-- Target container for PDF generation -->
     <div id="cv-content">
 
-        <!-- Header / Hero Section -->
+        <!-- Header / Hero Section with Cosmic Nebula styling -->
         <header class="hero">
             <div class="container hero-flex">
                 <div class="hero-image">
@@ -75,7 +75,7 @@
                 <div class="card">
                     <h3><i class="fas fa-user-check"></i> Reference</h3>
                     <p><strong>Mr. Hin Dawith</strong></p>
-                    <p class="subtitle">SUC6 Math Teacher</p>
+                    <p class="subtitle-ref">SUC6 Math Teacher</p>
                 </div>
             </aside>
 
@@ -188,7 +188,7 @@
             button.style.display = 'none';
 
             html2pdf().set(options).from(element).save().then(() => {
-                button.style.display = 'inline-block';
+                button.style.display = 'inline-flex';
             });
         }
     </script>
