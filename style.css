@@ -167,13 +167,15 @@ body {
     flex-shrink: 0;
 }
 
+/* Modified to force skill tags under each other cleanly */
 .skills-list li {
-    display: inline-block;
+    display: block;
+    width: 100%;
     background-color: var(--light-bg);
-    padding: 6px 14px;
-    margin: 4px 4px 4px 0;
+    padding: 8px 14px;
+    margin: 8px 0;
     border-radius: 4px;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     font-weight: 500;
     border-left: 3px solid var(--primary-color);
 }
@@ -253,14 +255,28 @@ footer {
     font-size: 0.9rem;
 }
 
-/* --- Page-Break Rules to Prevent Text Cutting --- */
-.card, 
-.timeline-item, 
-.project-item,
-.contact-list li,
-.skills-list li {
-    page-break-inside: avoid !important;
-    break-inside: avoid !important;
+/* --- Page-Break Rules for Perfect Splits --- */
+.html2pdf__page-break {
+    page-break-before: always !important;
+    break-before: always !important;
+    display: none;
+}
+
+@media print {
+    .html2pdf__page-break {
+        display: block !important;
+    }
+    
+    #cv-content {
+        background-color: #f4f7f9 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    
+    .content .card:nth-child(2) {
+        page-break-before: always !important;
+        break-before: always !important;
+    }
 }
 
 /* --- Responsive Media Queries (Tablets & Mobile Devices) --- */
@@ -313,9 +329,8 @@ footer {
         justify-content: center;
     }
     
-    .skills-list li {
-        width: 100%;
-        margin-right: 0;
+    .mt-mobile-fix {
+        margin-top: 15px;
     }
 }
 
