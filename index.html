@@ -173,8 +173,11 @@
     <script>
         function downloadCV(event) {
             event.preventDefault();
+            
+            // Target the entire container element
             const element = document.getElementById('cv-content');
             
+            // Set options for high-quality PDF conversion
             const options = {
                 margin:       10,
                 filename:     'Hout_Ratanakvisoth_CV.pdf',
@@ -184,11 +187,16 @@
                 pagebreak:    { mode: ['css', 'legacy'] }
             };
 
+            // Temporarily hide the button element on the webpage so it doesn't render inside the PDF file
             const button = document.querySelector('.btn.no-print');
-            button.style.display = 'none';
+            if (button) button.style.visibility = 'hidden';
 
+            // Generate and save the PDF, then restore button visibility
             html2pdf().set(options).from(element).save().then(() => {
-                button.style.display = 'inline-flex';
+                if (button) button.style.visibility = 'visible';
+            }).catch(err => {
+                console.error("PDF generation error: ", err);
+                if (button) button.style.visibility = 'visible';
             });
         }
     </script>
